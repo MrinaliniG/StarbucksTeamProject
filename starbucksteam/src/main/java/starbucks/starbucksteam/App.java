@@ -9,7 +9,7 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 
-//spring boot
+//spring boot changes
 @SpringBootApplication
 public class App {
 
