@@ -23,7 +23,11 @@ public class LoginController {
     public String login(@RequestBody User user) throws JsonProcessingException{
 	   String result = new String();
        User userExists = userService.findUserByEmail(user.getEmail());
+       
        if (userExists != null) {
+    	   if(!userExists.getPassword().equals(user.getPassword())) {
+    		   result = "Invalid login email or password";
+    	   }
     	   ObjectMapper mapper = new ObjectMapper();
     	// Java object to JSON string
     		String jsonString = mapper.writeValueAsString(userExists);
