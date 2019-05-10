@@ -1,6 +1,5 @@
 package starbucks.starbucksteam.repository;
 
-//import com.cmpe202.starbucks.model.Payment;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import starbucks.starbucksteam.model.Payment;

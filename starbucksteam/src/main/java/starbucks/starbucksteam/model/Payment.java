@@ -1,7 +1,5 @@
 package starbucks.starbucksteam.model;
 
-//import com.cmpe202.starbucks.model.enums.PaymentInstrumentEnum;
-//import com.cmpe202.starbucks.model.enums.PaymentStatusEnum;
 import com.fasterxml.jackson.annotation.JsonFilter;
 import org.springframework.validation.annotation.Validated;
 import starbucks.starbucksteam.model.UserOrder;

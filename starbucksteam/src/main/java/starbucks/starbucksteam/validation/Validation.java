@@ -1,8 +1,5 @@
 package starbucks.starbucksteam.validation;
 
-//import com.cmpe202.starbucks.exception.BusinessException;
-//import com.cmpe202.starbucks.model.Payment;
-
 import starbucks.starbucksteam.model.Payment;
 import starbucks.starbucksteam.exception.BusinessException;
 
