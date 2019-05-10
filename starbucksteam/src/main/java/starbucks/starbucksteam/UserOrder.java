@@ -1,6 +1,7 @@
 package starbucks.starbucksteam;
 
 //import com.cmpe202.starbucks.model.enums.OrderPaymentStatusEnum;
+
 import org.springframework.validation.annotation.Validated;
 
 import javax.persistence.*;
@@ -10,14 +11,14 @@ import java.util.List;
 
 @Validated
 @Entity
-public class AccountOrder {
+public class UserOrder {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @OneToOne
-    private Account account;
+    private User account;
 
     @OneToMany(targetEntity = Payment.class)
     private List<Payment> payments = new ArrayList<>();
@@ -26,7 +27,7 @@ public class AccountOrder {
     private OrderPaymentStatusEnum orderPaymentStatusEnum = OrderPaymentStatusEnum.PENDING;
 
 
-    public AccountOrder() {
+    public UserOrder() {
         super();
     }
 
@@ -46,20 +47,20 @@ public class AccountOrder {
         this.orderPaymentStatusEnum = orderPaymentStatusEnum;
     }
 
-    public Account getAccount() {
-        return account;
-    }
-
-    public void setAccount(Account account) {
-        this.account = account;
-    }
-
     public List<Payment> getPayments() {
         return payments;
     }
 
     public void setPayments(List<Payment> payments) {
         this.payments = payments;
+    }
+
+    public User getAccount() {
+        return account;
+    }
+
+    public void setAccount(User account) {
+        this.account = account;
     }
 }
 

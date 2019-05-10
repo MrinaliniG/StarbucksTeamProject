@@ -47,7 +47,7 @@ public class Payment {
     private String billingAddress;
 
     @OneToOne
-    private AccountOrder order;
+    private UserOrder order;
 
     @Column(nullable = false)
     private PaymentStatusEnum paymentStatus = PaymentStatusEnum.PENDING;
@@ -121,11 +121,11 @@ public class Payment {
     }
 
 
-    public AccountOrder getOrder() {
+    public UserOrder getOrder() {
         return order;
     }
 
-    public void setOrder(AccountOrder order) {
+    public void setOrder(UserOrder order) {
         this.order = order;
     }
 }

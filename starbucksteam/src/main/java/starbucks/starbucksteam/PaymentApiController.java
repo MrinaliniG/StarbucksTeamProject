@@ -3,11 +3,11 @@ package starbucks.starbucksteam;
 
 //import com.cmpe202.starbucks.exception.BusinessException;
 //import com.cmpe202.starbucks.exception.ResourceNotFoundException;
-//import com.cmpe202.starbucks.model.AccountOrder;
+//import com.cmpe202.starbucks.model.UserOrder;
 //import com.cmpe202.starbucks.model.Payment;
 //import com.cmpe202.starbucks.model.enums.OrderPaymentStatusEnum;
 //import com.cmpe202.starbucks.model.enums.PaymentStatusEnum;
-//import com.cmpe202.starbucks.repository.AccountOrderRepository;
+//import com.cmpe202.starbucks.repository.UserOrderRepository;
 //import com.cmpe202.starbucks.repository.PaymentRepository;
 //import com.cmpe202.starbucks.util.FilterUtil;
 //import com.cmpe202.starbucks.validation.Validation;
@@ -24,7 +24,7 @@ import java.util.Optional;
 public class PaymentApiController {
 
     @Autowired
-    private AccountOrderRepository accountOrderRepository;
+    private UserOrderRepository userOrderRepository;
 
     @Autowired
     private PaymentRepository paymentRepository;
@@ -33,7 +33,7 @@ public class PaymentApiController {
     @PostMapping("/order/{orderId}/payment")
     @Transactional
     public ResponseEntity<Object> createPayment(@PathVariable("orderId") Long orderId, @Valid @RequestBody Payment payment) {
-        Optional<AccountOrder> existingOrder = accountOrderRepository.findById(orderId);
+        Optional<UserOrder> existingOrder = userOrderRepository.findById(orderId);
         if (!existingOrder.isPresent()) {
             throw new ResourceNotFoundException("Order does not exist :: " + orderId);
         }
@@ -45,9 +45,9 @@ public class PaymentApiController {
         Validation.validatePayment(payment);
 
         if (payment.getPaymentStatus().equals(PaymentStatusEnum.COMPLETE)) {
-            AccountOrder order = existingOrder.get();
+            UserOrder order = existingOrder.get();
             order.setOrderPaymentStatusEnum(OrderPaymentStatusEnum.COMPLETE);
-            order = accountOrderRepository.save(order);
+            order = userOrderRepository.save(order);
             payment.setOrder(order);
         }
 
@@ -60,7 +60,7 @@ public class PaymentApiController {
     @GetMapping("/order/{orderId}/payment")
     @Transactional
     public ResponseEntity<Object> getAllPaymentsForOrder(@PathVariable("orderId") Long orderId) {
-        Optional<AccountOrder> order = accountOrderRepository.findById(orderId);
+        Optional<UserOrder> order = userOrderRepository.findById(orderId);
         if (!order.isPresent()) {
             throw new ResourceNotFoundException("Order does not exist :: " + orderId);
         }
