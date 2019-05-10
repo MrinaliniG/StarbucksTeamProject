@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import starbucks.starbucksteam.security.UserService;
 import starbucks.starbucksteam.model.User;
+import starbucks.starbucksteam.service.UserService;
 
 @RestController
 @RequestMapping("/v1/starbucks")
