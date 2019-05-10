@@ -1,12 +1,12 @@
 package starbucks.starbucksteam.repository;
 
-import org.springframework.data.repository.CrudRepository;
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
 import starbucks.starbucksteam.model.Card;
+import starbucks.starbucksteam.model.User;
 
 
-// This will be AUTO IMPLEMENTED by Spring into a Bean called userRepository
-// CRUD refers Create, Read, Update, Delete
-
-public interface CardRepository extends CrudRepository<Card, Integer> {
-
+public interface CardRepository extends JpaRepository<Card, Integer> {
+	 List<Card> findByUser(User user);
 }

@@ -2,30 +2,18 @@ package starbucks.starbucksteam.security;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import starbucks.starbucksteam.repository.UserRepository;
-import starbucks.starbucksteam.model.Role;
 import starbucks.starbucksteam.model.User;
-import starbucks.starbucksteam.repository.RoleRepository;
-
-import java.util.Arrays;
-import java.util.HashSet;
 
 @Service("userService")
 public class UserService {
 
     private UserRepository userRepository;
-    private RoleRepository roleRepository;
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Autowired
-    public UserService(UserRepository userRepository,
-                       RoleRepository roleRepository,
-                       BCryptPasswordEncoder bCryptPasswordEncoder) {
+    public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
-        this.roleRepository = roleRepository;
-        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
     public User findUserByEmail(String email) {
@@ -33,10 +21,10 @@ public class UserService {
     }
 
     public void saveUser(User user) {
-        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+        user.setPassword(user.getPassword());
         user.setActive(1);
-        Role userRole = roleRepository.findByRole("ADMIN");
-        user.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
+        user.setName(user.getName());
+        user.setLastName(user.getLastName());
         userRepository.save(user);
     }
 
