@@ -27,6 +27,7 @@ public class LoginController {
        if (userExists != null) {
     	   if(!userExists.getPassword().equals(user.getPassword())) {
     		   result = "Invalid login email or password";
+    		   return result;
     	   }
     	   ObjectMapper mapper = new ObjectMapper();
     	// Java object to JSON string

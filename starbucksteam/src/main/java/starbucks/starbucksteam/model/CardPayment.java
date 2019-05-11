@@ -11,6 +11,7 @@ public class CardPayment {
 	private String error;
 	private String cardType;
 	private double amount;
+	private String cardid;
 	
 	public String getCardNumber() {
 		return cardNumber;
@@ -65,6 +66,12 @@ public class CardPayment {
 	}
 	public void setAmount(double amount) {
 		this.amount = amount;
+	}
+	public String getCardid() {
+		return cardid;
+	}
+	public void setCardid(String cardid) {
+		this.cardid = cardid;
 	}
 	
 	

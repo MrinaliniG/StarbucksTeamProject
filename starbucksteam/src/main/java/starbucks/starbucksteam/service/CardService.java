@@ -1,8 +1,10 @@
 package starbucks.starbucksteam.service;
 
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,19 +38,40 @@ public class CardService {
 	    	
     	} else {
     		Card card = new Card();
-	    	card.setCardcode(cardpayment.getCardcode());
-	    	card.setUser(userRepo.findByEmail(cardpayment.getEmail()));
-	    	Calendar calendar = Calendar.getInstance();
-	        java.sql.Date dateObj = new java.sql.Date(calendar.getTime().getTime());
-	    	card.setCardcreateddate(dateObj);
-	    	card.setBalance(cardpayment.getAmount());
-	    	card = cardRepo.save(card);
-	    	
-	    	cardresult =  "Saved the card with card id :  " + card.getCardid() + " and card code: " + card.getCardcode() 
-			+ "and balance : " + card.getBalance();
+    		if(cardpayment.getCardid().matches("[0-9]+") && cardpayment.getCardid().length() != 9) {
+    			cardresult = "Card Id is invalid. Please enter a correct card number";
+    			return cardresult;
+    		} 
+    		
+    		if(userRepo.findByEmail(cardpayment.getEmail()) == null) {
+    			return "Email is not valid";
+    		}
+
+    		
+    		List<Integer> ids = new ArrayList<Integer>();
+    		ids.add(Integer.valueOf(cardpayment.getCardid()));
+    		
+    		List<Card> cardList = cardRepo.findAllById(ids);
+    		
+    		if(cardList.size() == 0) {
+    		
+		    	card.setCardcode(cardpayment.getCardcode());
+		    	card.setUser(userRepo.findByEmail(cardpayment.getEmail()));
+		    	Calendar calendar = Calendar.getInstance();
+		        java.sql.Date dateObj = new java.sql.Date(calendar.getTime().getTime());
+		    	card.setCardcreateddate(dateObj);
+		    	card.setBalance(cardpayment.getAmount());
+		    	card.setCardid(Integer.valueOf(cardpayment.getCardid()));
+		    	card = cardRepo.save(card);
+		    	
+		    	cardresult =  "Saved the card with card id :  " + card.getCardid() + " and card code: " + card.getCardcode() 
+				+ "and balance : " + card.getBalance();
+    		} else {
+    			cardresult = "Enter a new reward card number as it already exists";
+    		}
     	}
     	
-		return cardresult;
+    	return cardresult;
     }
     
     

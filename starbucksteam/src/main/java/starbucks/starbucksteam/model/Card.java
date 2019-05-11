@@ -3,8 +3,6 @@ package starbucks.starbucksteam.model;
 import java.sql.Date;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -14,11 +12,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name="card")
+//@SequenceGenerator(name="CARD_SEQUENCE_GENERATOR", sequenceName="CARD_SEQUENCE", initialValue=123467890, allocationSize=1)
 public class Card {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	//@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="CARD_SEQUENCE_GENERATOR")
 	private int cardid;
+	
 	private int cardcode;
 	
 	private Date cardcreateddate;
