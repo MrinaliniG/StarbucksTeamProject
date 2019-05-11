@@ -23,8 +23,7 @@ public class Menu {
 	public Menu()
 	{
 		
-	}
-	
+	}	
 	
 	public Menu(long itemId, String itemName, float price, String category) {		
 		this.itemId = itemId;
