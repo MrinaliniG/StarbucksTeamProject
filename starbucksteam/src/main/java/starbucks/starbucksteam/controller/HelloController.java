@@ -6,6 +6,7 @@ import java.util.Calendar;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,7 +23,9 @@ public class HelloController {
 
     @RequestMapping("/hello")
     public ResponseEntity<String> index() {
-    	return new ResponseEntity<String>("Greetings from Spring Boot!",HttpStatus.OK);
+    	HttpHeaders headers = new HttpHeaders();
+    	headers.set("Content-Type","*/*;charset=UTF-8");
+    	return new ResponseEntity<String>("Greetings from Spring Boot!", headers, HttpStatus.OK);
     } 
 
 }
