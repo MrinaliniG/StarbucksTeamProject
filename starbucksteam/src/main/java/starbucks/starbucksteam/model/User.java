@@ -39,9 +39,6 @@ public class User {
     @Column(name = "active")
     private int active;
 
-    @OneToMany(targetEntity = UserOrder.class)
-    private List<UserOrder> orders = new ArrayList<>();
-    
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @JsonIgnore
     private Set<Card> cards;
@@ -93,15 +90,6 @@ public class User {
 
     public void setActive(int active) {
         this.active = active;
-    }
-
-
-    public List<UserOrder> getOrders() {
-        return orders;
-    }
-
-    public void setOrders(List<UserOrder> orders) {
-        this.orders = orders;
     }
 
 	public Set<Card> getCards() {

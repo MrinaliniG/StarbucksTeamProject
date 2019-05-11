@@ -1,5 +1,7 @@
 package starbucks.starbucksteam.model;
 
+import org.springframework.validation.annotation.Validated;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,6 +10,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+@Validated
+@Entity
 public class Menu {
 
 	@Id
