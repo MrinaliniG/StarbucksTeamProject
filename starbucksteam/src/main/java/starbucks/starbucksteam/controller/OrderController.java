@@ -33,6 +33,7 @@ public class OrderController {
 	@RequestMapping(value="/manageOrder", method= RequestMethod.POST)
     public ResponseEntity<String> manageOrder(@RequestBody TempOrder tempOrder)
     {
+		float billAmount;
 		User user = userRepository.findByEmail(tempOrder.getEmail());
 		if(user == null)
 		{
@@ -40,7 +41,7 @@ public class OrderController {
 		}
 		
 		try {
-			orderService.createOrder(user, tempOrder);
+			 billAmount = orderService.createOrder(user, tempOrder);
 		}
 		catch(Exception e)
 		{
@@ -48,7 +49,16 @@ public class OrderController {
 	         return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		
-		return new ResponseEntity<String>("Success.",HttpStatus.OK);
+		if(billAmount > 0)
+		{
+			String result = "Order received. Bill Amount " + billAmount;
+			return new ResponseEntity<String>(result,HttpStatus.OK);
+		}
+		else 
+		{
+			String result = "Order not accepted. Please re-check order details.";
+			return new ResponseEntity<String>(result,HttpStatus.OK);
+		}
     }
 			
 }
