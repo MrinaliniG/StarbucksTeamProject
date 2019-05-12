@@ -5,7 +5,7 @@ Mrinalini GopalaKrishnan
 Megha Nair
 Sahana Innanje
 
-Individual APIs and contributions :
+##Individual APIs and contributions :
 1) Mrinalini Gopalakrishnan - Order Use Case - Manage Order API, Get Menu API. 
 Worked on setting up EC2 load balancer and deployment on AWS, contributions to trello board as a team member, 
 Integration testing using postman.
@@ -15,37 +15,55 @@ Contributions to trello board as a team member, Integration testing using postma
 Add Card use case - Add Card API, Get all cards of a user API. 
 Worked on setting up EC2 instance load balancer on AWS, created github and trello boards, worked on docker setup using ECR and ECS. 
 
-Agile team details :
+##Agile team details :
 3 member team . 1 week sprint cycle . Estimated hours and burndown. Used trello for agile implementation. 
 Created stories and tasks on trello . 
 
-Trello board : 
+##Trello board : 
 ![Trello agile board](agile%20board%20on%20trello.png?raw=true "trello agile board")
 
 ![sprint cycle](sprint%20cycle.png?raw=true "sprint cycle")
 
 ![sprint estimates](hours%20estimaation%20points.png?raw=true "sprint estimates")
 
-Technologies used :
+##XP value we used in our team : COMMUNICATION
+We communicated face to face daily for the last week before starting the work on that day. We even had daily stand up and reporting. 
+We discussed our blockers and any help which is needed. The team members contributed and helped others when it was known that someone was blocked. We discussed the requirements with each other and made changes on what component has to be built. 
+
+##Technologies used :
 
 Spring Boot REST Webservices with embedded tomcat for local testing
 Cloud  Services : AWS - EC2 instances and load balancer with mysql
 Database : MYSQL
 Testing tool : Postman
 
-Architecture diagram :
+##Architecture diagram :
 
-Deployment Diagram :
 
-AWS - EC2 with load balancer :
 
-Docker Image and docker steps for build on ECS:
-
-Use cases:
+##Use cases:
 1) Registration and login
 2) Adding cards for users
 3) Management of order
 4) Payment for an order and payment history
+
+##Deploy API to AWS in an Auto Scaled EC2 Cluster with Load Balancer
+Created two EC2 instances . This was put in TARGET GROUPS  which were assigned to a load balancer with two instances size. 
+Appropriate TCP, SSH AND HTTP security groups were created and attached to the AWS load balancer and also, instances. 
+Our servers were up and we could access the load balancer as shown in the demo. We used postman to hit these instances and load balancer. 
+Example : http://starbucks202-alb-may10-574270762.us-east-2.elb.amazonaws.com/v1/starbucks/getCards/sahana.innan@sjsu.edu
+http://ec2-52-14-15-13.us-east-2.compute.amazonaws.com:8080/v1/starbucks/getCards/sahana.innan@sjsu.edu
+
+##Deploy API to AWS as Docker Containers in Amazon Containers
+A docker image was created from the Springboot JAR. Spring boot jaar used a dockerfile which is attached in github. 
+Then a docker container was created in local instance for testing. Once tested, docker image was pushed to ECR repository. 
+147119161124.dkr.ecr.us-east-2.amazonaws.com/starbucksecr
+A starbucks cluster was created with a task and this container image in ECS. The cluster was started up in ECS with the required task 
+instance.
+
+##Frequency of commits - https://github.com/sinnanje/StarbucksTeamProject/commits/master
+
+We have issues in our github insights as it is not showing up proper commit history. The above link has all the commits which were done by team members for the last week. 
 
 
 
