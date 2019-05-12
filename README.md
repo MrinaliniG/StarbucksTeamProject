@@ -45,10 +45,23 @@ Testing tool : Postman
 
 
 ## Use cases:
-1) Registration and login
+1) Registration and login -
+
+Registration and login api using email and password. Validation during login to check if email or password exists. If email and password doesn't exist, throw error. 
+
 2) Adding cards for users
+
+Add card api using email and credit card basic authorization for VISA,MAASTERCARD and AMEX for credit card number and cvv . This would ideally be sent to payment gateway API(not implemented) . Card id and a code are also sent for creation of reward card. 
+Get card api to get all the cards for an email. 
+
 3) Management of order
+Get Menu API to see all the menu details available to the user. 
+Manage order API to create an order and generate a total bill amount for the items added.
+
 4) Payment for an order and payment history
+Payment API to pay for an order based on order id and bill amount. If insufficient balance, then validation throwws error to the user. 
+Get Payments API for a user to get all payments for the user.
+Get Payments API for a card to get all payments for a card. 
 
 ## Deploy API to AWS in an Auto Scaled EC2 Cluster with Load Balancer
 Created two EC2 instances . This was put in TARGET GROUPS  which were assigned to a load balancer with two instances size. 
