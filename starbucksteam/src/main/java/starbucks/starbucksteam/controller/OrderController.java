@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestBody;
 
 @Controller
+@RequestMapping("/v1/starbucks")
 public class OrderController {
 	
 	@Autowired

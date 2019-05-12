@@ -32,7 +32,7 @@ public class PaymentApiController {
     private UserRepository userRepository;
 
 
-    @PostMapping("/{email}/{cardId}/{cardCode}/{orderId}")
+    @PostMapping("/payOrder/{email}/{cardId}/{cardCode}/{orderId}")
     @Transactional
     public ResponseEntity<Object> createPayment(@PathVariable("email") String email,
                                                 @PathVariable("cardId") Integer cardId,
@@ -84,9 +84,9 @@ public class PaymentApiController {
     }
 
 
-    @GetMapping("/{email}")
+    @GetMapping("/paymentsUser/{email}")
     @Transactional
-    public ResponseEntity<Object> getAllPaymentsForCard(@PathVariable("email") String email) {
+    public ResponseEntity<Object> getAllPaymentsForUser(@PathVariable("email") String email) {
         User user = userRepository.findByEmail(email);
         if (user == null) {
             throw new ResourceNotFoundException("User does not exist :: " + email);
@@ -95,7 +95,7 @@ public class PaymentApiController {
         return ResponseEntity.ok().body(paymentRepository.findAllForUser(email));
     }
 
-    @GetMapping("/{email}/{cardId}")
+    @GetMapping("/paymentsCard/{email}/{cardId}")
     @Transactional
     public ResponseEntity<Object> getAllPaymentsForCard(@PathVariable("email") String email,
                                                         @PathVariable("cardId") Integer cardId) {
