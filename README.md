@@ -1,8 +1,11 @@
 # StarbucksTeamProject
 
 Three team members:
+
 Mrinalini GopalaKrishnan
+
 Megha Nair
+
 Sahana Innanje
 
 ## Individual APIs and contributions :
@@ -80,7 +83,7 @@ instance.
 ## Frequency of commits - https://github.com/sinnanje/StarbucksTeamProject/commits/master
 
 We have issues in our github insights as it is not showing up proper commit history. The above link has all the commits which were done by team members for the last week. 
-
+Sahana's name appears as SARAH ddue to eclipse commits from her computer which is named SARAH. 
 
 
 
