@@ -28,10 +28,10 @@ Trello board :
 
 Technologies used :
 
-Spring Boot REST Webservices with embedded tomcat for local testing\n
-Cloud  Services : AWS - EC2 instances and load balancer with mysql\n
-Database : MYSQL\n
-Postman for testing\n
+Spring Boot REST Webservices with embedded tomcat for local testing
+Cloud  Services : AWS - EC2 instances and load balancer with mysql
+Database : MYSQL
+Testing tool : Postman
 
 Architecture diagram :
 
