@@ -29,6 +29,8 @@ Created stories and tasks on trello .
 
 ![sprint estimates](hours%20estimaation%20points.png?raw=true "sprint estimates")
 
+![burndown](burndown%20starbucks.png?raw=true "burndown") 
+
 ## XP value we used in our team : COMMUNICATION
 We communicated face to face daily for the last week before starting the work on that day. We even had daily stand up and reporting. 
 We discussed our blockers and any help which is needed. The team members contributed and helped others when it was known that someone was blocked. We discussed the requirements with each other and made changes on what component has to be built. 
