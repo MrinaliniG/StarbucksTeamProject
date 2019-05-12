@@ -1,13 +1,10 @@
 package starbucks.starbucksteam.model;
 
 import org.springframework.validation.annotation.Validated;
-import starbucks.starbucksteam.model.enums.PaymentInstrumentEnum;
 import starbucks.starbucksteam.model.enums.PaymentStatusEnum;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-import java.time.LocalDate;
 
 @Validated
 @Entity
