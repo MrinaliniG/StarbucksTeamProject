@@ -42,7 +42,7 @@ Testing tool : Postman
 
 ## Architecture diagram :
 
-
+![architecture](architecture.jpeg?raw=true "architecture")
 
 ## Use cases:
 1) Registration and login -
