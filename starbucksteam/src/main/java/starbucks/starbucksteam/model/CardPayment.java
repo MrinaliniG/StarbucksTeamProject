@@ -13,7 +13,6 @@ public class CardPayment {
 	private double amount;
 	private String cardid;
 	
-	
 	public int getMonth() {
 		return month;
 	}
