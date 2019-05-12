@@ -1,8 +1,5 @@
 package starbucks.starbucksteam.controller;
 
-import java.util.Calendar;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,19 +7,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
-import starbucks.starbucksteam.model.Card;
 import starbucks.starbucksteam.model.CardPayment;
-import starbucks.starbucksteam.model.User;
-import starbucks.starbucksteam.repository.CardRepository;
-import starbucks.starbucksteam.repository.UserRepository;
 import starbucks.starbucksteam.service.CardService;
-import starbucks.starbucksteam.service.UserService;
 
 /**
  * @author SAHANA

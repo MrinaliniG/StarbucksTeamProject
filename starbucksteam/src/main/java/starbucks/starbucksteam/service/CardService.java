@@ -4,8 +4,6 @@ package starbucks.starbucksteam.service;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +12,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import starbucks.starbucksteam.repository.CardRepository;
 import starbucks.starbucksteam.repository.UserRepository;
-import starbucks.starbucksteam.exception.BusinessException;
 import starbucks.starbucksteam.model.Card;
 import starbucks.starbucksteam.model.CardPayment;
 import starbucks.starbucksteam.model.User;
