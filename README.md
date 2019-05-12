@@ -19,4 +19,6 @@ Agile team details :
 3 member team . 1 week sprint cycle . Estimated hours and burndown. Used trello for agile implementation. 
 Created stories and tasks on trello . 
 
-Trello board : https://github.com/sinnanje/StarbucksTeamProject/blob/master/agile%20board%20on%20trello.png
+Trello board : 
+![Trello agile board](/blob/master/agile%20board%20on%20trello.png?raw=true "trello agile board")
+https://github.com/sinnanje/StarbucksTeamProject/blob/master/agile%20board%20on%20trello.png
