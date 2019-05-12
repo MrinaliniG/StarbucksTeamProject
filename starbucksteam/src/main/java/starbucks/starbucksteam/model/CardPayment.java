@@ -2,29 +2,18 @@ package starbucks.starbucksteam.model;
 
 public class CardPayment {
 	
-	private String cardNumber;
-	private int cvv;
+	private String creditCardNumber;
+	private int creditcardcvv;
 	private int month;
 	private int year;
 	private int cardcode;
 	private String email;
 	private String error;
-	private String cardType;
+	private String creditCardType;
 	private double amount;
 	private String cardid;
 	
-	public String getCardNumber() {
-		return cardNumber;
-	}
-	public void setCardNumber(String cardNumber) {
-		this.cardNumber = cardNumber;
-	}
-	public int getCvv() {
-		return cvv;
-	}
-	public void setCvv(int cvv) {
-		this.cvv = cvv;
-	}
+	
 	public int getMonth() {
 		return month;
 	}
@@ -55,12 +44,7 @@ public class CardPayment {
 	public void setError(String error) {
 		this.error = error;
 	}
-	public String getCardType() {
-		return cardType;
-	}
-	public void setCardType(String cardType) {
-		this.cardType = cardType;
-	}
+	
 	public double getAmount() {
 		return amount;
 	}
@@ -72,6 +56,24 @@ public class CardPayment {
 	}
 	public void setCardid(String cardid) {
 		this.cardid = cardid;
+	}
+	public String getCreditCardNumber() {
+		return creditCardNumber;
+	}
+	public void setCreditCardNumber(String creditCardNumber) {
+		this.creditCardNumber = creditCardNumber;
+	}
+	public int getCreditcardcvv() {
+		return creditcardcvv;
+	}
+	public void setCreditcardcvv(int creditcardcvv) {
+		this.creditcardcvv = creditcardcvv;
+	}
+	public String getCreditCardType() {
+		return creditCardType;
+	}
+	public void setCreditCardType(String creditCardType) {
+		this.creditCardType = creditCardType;
 	}
 	
 	

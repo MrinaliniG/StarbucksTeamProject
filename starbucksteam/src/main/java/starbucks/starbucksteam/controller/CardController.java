@@ -46,10 +46,8 @@ public class CardController {
     @GetMapping(path = "/getCards/{email}")
     public String getCardsForUser(@PathVariable("email") String email) throws JsonProcessingException {
 
-        List<Card> cards = cardService.getCardsForEmail(email);
+        String cards = cardService.getCardsForEmail(email);
 
-        ObjectMapper mapper = new ObjectMapper();
-        String json = mapper.writeValueAsString(cards);
-        return json;
+        return cards;
     }
 }

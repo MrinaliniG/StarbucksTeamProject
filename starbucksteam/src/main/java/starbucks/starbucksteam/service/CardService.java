@@ -9,6 +9,9 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import starbucks.starbucksteam.repository.CardRepository;
 import starbucks.starbucksteam.repository.UserRepository;
 import starbucks.starbucksteam.exception.BusinessException;
@@ -65,7 +68,7 @@ public class CardService {
 		    	card = cardRepo.save(card);
 		    	
 		    	cardresult =  "Saved the card with card id :  " + card.getCardid() + " and card code: " + card.getCardcode() 
-				+ "and balance : " + card.getBalance();
+				+ " and balance : " + card.getBalance();
     		} else {
     			cardresult = "Enter a new reward card number as it already exists";
     		}
@@ -75,10 +78,19 @@ public class CardService {
     }
     
     
-    public List<Card> getCardsForEmail(String email) {
+    public String getCardsForEmail(String email) throws JsonProcessingException {
+    	String jsonString;
     	User user = userRepo.findByEmail(email);
+    	if(user == null) {
+			return "Email is not valid";
+		}
 		List<Card> cardResult = cardRepo.findByUser(user);
-		return cardResult;
+		
+		ObjectMapper mapper = new ObjectMapper();
+    	// Java object to JSON string
+    		jsonString = mapper.writeValueAsString(cardResult);
+		
+		return jsonString;
     }
     
     /**
@@ -88,18 +100,18 @@ public class CardService {
     private String creditCardValidate(CardPayment payment) {
     	String validate = null;
     	
-    	String cardType = payment.getCardType();
+    	String cardType = payment.getCreditCardType();
     	
     	if(cardType.equals("MASTERCARD") || cardType.equals("VISA")) {
-    		if(payment.getCardNumber().matches("[0-9]+") && payment.getCardNumber().length() != 16) {
+    		if(payment.getCreditCardNumber().matches("[0-9]+") && payment.getCreditCardNumber().length() != 16) {
     			return "Credit Card Number is invalid";
-    		} else if(String.valueOf(payment.getCvv()).length() != 3) {
+    		} else if(String.valueOf(payment.getCreditcardcvv()).length() != 3) {
     			return "Credit Card CVV is invalid";
     		}
     	} else if(cardType.equals("AMEX")) {
-    		if(payment.getCardNumber().matches("[0-9]+") && payment.getCardNumber().length() != 15) {
+    		if(payment.getCreditCardNumber().matches("[0-9]+") && payment.getCreditCardNumber().length() != 15) {
     			return "Credit Card Number is invalid";
-    		} else if(String.valueOf(payment.getCvv()).length() != 4) {
+    		} else if(String.valueOf(payment.getCreditcardcvv()).length() != 4) {
     			return "Credit Card CVV is invalid";
     		}
     	} else {
