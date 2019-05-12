@@ -24,14 +24,14 @@ Trello board :
 
 ![sprint cycle](sprint%20cycle.png?raw=true "sprint cycle")
 
-![sprint estimates](hours estimaation points.png?raw=true "sprint estimates")
+![sprint estimates](hours%20estimaation%20points.png?raw=true "sprint estimates")
 
 Technologies used :
 
-Spring Boot REST Webservices with embedded tomcat for local testing
-Cloud  Services : AWS - EC2 instances and load balancer with mysql
-Database : MYSQL
-Postman for testing 
+Spring Boot REST Webservices with embedded tomcat for local testing\n
+Cloud  Services : AWS - EC2 instances and load balancer with mysql\n
+Database : MYSQL\n
+Postman for testing\n
 
 Architecture diagram :
 
