@@ -21,4 +21,6 @@ Created stories and tasks on trello .
 
 Trello board : 
 ![Trello agile board](agile%20board%20on%20trello.png?raw=true "trello agile board")
-https://github.com/sinnanje/StarbucksTeamProject/blob/master/agile%20board%20on%20trello.png
+
+
+![sprint cycle](sprint%20cycle.png?raw=true "sprint cycle")
