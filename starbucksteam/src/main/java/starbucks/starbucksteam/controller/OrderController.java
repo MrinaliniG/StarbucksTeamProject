@@ -7,6 +7,7 @@ import starbucks.starbucksteam.model.TempOrder;
 import starbucks.starbucksteam.service.OrderService;
 import starbucks.starbucksteam.repository.OrderRepository;
 import starbucks.starbucksteam.repository.UserRepository;
+import starbucks.starbucksteam.repository.MenuRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.http.HttpStatus;
@@ -17,6 +18,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestBody;
+
+import java.util.List;
+import java.util.ArrayList;
 
 @Controller
 @RequestMapping("/v1/starbucks")
@@ -30,6 +34,9 @@ public class OrderController {
 	
 	@Autowired
 	private UserRepository userRepository;
+	
+	@Autowired
+	private MenuRepository menuRepository;
 	
 	@RequestMapping(value="/manageOrder", method= RequestMethod.POST)
     public ResponseEntity<String> manageOrder(@RequestBody TempOrder tempOrder)
@@ -62,5 +69,23 @@ public class OrderController {
 		}
     }
 			
+	
+	@RequestMapping(method=RequestMethod.GET, value = "/getMenu")
+    public ResponseEntity<List<Menu>> getHackathonsByTeamMember(@RequestParam("email") String email)
+    {
+		User user = userRepository.findByEmail(email);
+		if(user == null)
+		{
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+		
+		List<Menu> menulist = new ArrayList<>();
+		for(Menu m: menuRepository.findAll())
+		{
+			menulist.add(m);
+		}
+		
+		return new ResponseEntity<>(menulist,HttpStatus.OK);
+    }
 }
 
