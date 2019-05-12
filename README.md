@@ -2,11 +2,7 @@
 
 Three team members:
 
-Mrinalini GopalaKrishnan
-
-Megha Nair
-
-Sahana Innanje
+Mrinalini GopalaKrishnan, Megha Nair, Sahana Innanje
 
 ## Individual APIs and contributions :
 1) Mrinalini Gopalakrishnan - Order Use Case - Manage Order API, Get Menu API. 
