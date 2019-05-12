@@ -22,5 +22,33 @@ Created stories and tasks on trello .
 Trello board : 
 ![Trello agile board](agile%20board%20on%20trello.png?raw=true "trello agile board")
 
-
 ![sprint cycle](sprint%20cycle.png?raw=true "sprint cycle")
+
+![sprint estimates](hours estimaation points.png?raw=true "sprint estimates")
+
+Technologies used :
+
+Spring Boot REST Webservices with embedded tomcat for local testing
+Cloud  Services : AWS - EC2 instances and load balancer with mysql
+Database : MYSQL
+Postman for testing 
+
+Architecture diagram :
+
+Deployment Diagram :
+
+AWS - EC2 with load balancer :
+
+Docker Image and docker steps for build on ECS:
+
+Use cases:
+1) Registration and login
+2) Adding cards for users
+3) Management of order
+4) Payment for an order and payment history
+
+
+
+
+
+
