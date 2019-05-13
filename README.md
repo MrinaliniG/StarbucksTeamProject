@@ -8,8 +8,8 @@ Mrinalini GopalaKrishnan, Megha Nair, Sahana Innanje
 1) Mrinalini Gopalakrishnan - Order Use Case - Manage Order API, Get Menu API. 
 Worked on setting up EC2 load balancer and deployment on AWS, contributions to trello board as a team member, 
 Integration testing using postman.
-2) Megha Nair - Payment use case - Pay for an order API, Get payments for a user,Get payments for a reward card,
-Contributions to trello board as a team member, Integration testing using postman. 
+2) Megha Nair - Payment use case - Pay for an order API, Get payments for a user API, Get payments for a reward card API,
+contributions to trello board as a team member, Integration testing using postman. 
 3) Sahana Innanje - Registration and login use case - Registration API, Login API using email and password. 
 Add Card use case - Add Card API, Get all cards of a user API. 
 Worked on setting up EC2 instance load balancer on AWS, created github and trello boards, worked on docker setup using ECR and ECS. 
