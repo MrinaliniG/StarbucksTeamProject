@@ -1,17 +1,13 @@
 package starbucks.starbucksteam.controller;
 
-import starbucks.starbucksteam.model.Order;
 import starbucks.starbucksteam.model.Menu;
 import starbucks.starbucksteam.model.User;
 import starbucks.starbucksteam.model.TempOrder;
 import starbucks.starbucksteam.service.OrderService;
-import starbucks.starbucksteam.repository.OrderRepository;
 import starbucks.starbucksteam.repository.UserRepository;
 import starbucks.starbucksteam.repository.MenuRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,15 +18,19 @@ import org.springframework.web.bind.annotation.RequestBody;
 import java.util.List;
 import java.util.ArrayList;
 
+/**
+ * @author MRINALNI
+ * This is a class used for creating and maintaining starbucks orders. Customers
+ * can get the menu details. They can select the coffee and topping types. 
+ * The bill is generated for the customer order.
+ * 
+ */
 @Controller
 @RequestMapping("/v1/starbucks")
 public class OrderController {
 	
 	@Autowired
 	private OrderService orderService;
-	
-	@Autowired
-	private OrderRepository orderRepository;
 	
 	@Autowired
 	private UserRepository userRepository;
